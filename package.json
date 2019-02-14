@@ -1,0 +1,26 @@
+{
+  "name": "employee-finder",
+  "version": "1.0.0",
+  "description": "quiz-based employee matching app using Nodejs and Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothywadecook/employee-finder.git"
+  },
+  "keywords": [
+    "quiz",
+    "matching",
+    "node",
+    "express"
+  ],
+  "author": "Timothy W Cook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timothywadecook/employee-finder/issues"
+  },
+  "homepage": "https://github.com/timothywadecook/employee-finder#readme"
+}
