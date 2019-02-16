@@ -1,9 +1,15 @@
+const employeeData = require('employee.js')
+
 module.exports = function(app) {
     app.get('/api/employees', (req, res) => {
-
+        // grab latest list of employees and send back
+        res.json(employeeData.getEmployees)
     });
     app.post('/api/employees', (req, res) => {
-
+        // append the list of employees
+        const newEmployee = req.body;
+        employeeData.postEmployee(newEmployee);
+        console.log("list has been updated...", employeeData.getemployees);
     });
 
 

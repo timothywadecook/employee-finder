@@ -31,7 +31,11 @@ const employees = [
             3,
         ],
     }
-
-
-
 ]
+
+module.exports = {
+    getEmployees: employees,
+    postEmployee: (newEmployee) => {
+        employees.push(newEmployee)
+    }
+}
