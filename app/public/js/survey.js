@@ -11,11 +11,7 @@ const findMatch = function(employeeList, inputArray) {
         });
         diffArray.push(totalDiff);
     }
-    console.log('diffArray = ', diffArray)
-    console.log('min ',Math.min(...diffArray))
-    console.log('index ', diffArray.indexOf(Math.min(...diffArray)));
     const match = employeeList[diffArray.indexOf(Math.min(...diffArray))];
-    console.log('math = ', match);
     $('#match-name').text(match.name);
     $('#match-img').attr('src', match.photo);
     $('#results-modal').modal({show: true});
@@ -33,10 +29,17 @@ const getEmployeeList = function(inputArray) {
     });
 };
 
+// Define postNewEmployee(newEmployee)
+const postNewEmployee = function(newEmployee) {
+    $.post('/api/employees', newEmployee);
+};
+
 // Define getInput(e)
 const getInput = function(e) {
     e.preventDefault();
-    const inputArray = [
+    const name = $('#name').val();
+    const photo = $('#photo').val();
+    const scores = [
         $('#q1').val(), 
         $('#q2').val(),
         $('#q3').val(),
@@ -48,7 +51,13 @@ const getInput = function(e) {
         $('#q9').val(),
         $('#q10').val(),
     ];
-    getEmployeeList(inputArray);
+    getEmployeeList(scores);
+    const newEmployee = {
+        name,
+        photo,
+        scores
+    }
+    postNewEmployee(newEmployee)
 };
 
 const relocateHome = function() {

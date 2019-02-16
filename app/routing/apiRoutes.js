@@ -8,8 +8,9 @@ module.exports = function(app) {
     app.post('/api/employees', (req, res) => {
         // append the list of employees
         const newEmployee = req.body;
+        console.log("new employee = ", newEmployee);
         employeeData.postEmployee(newEmployee);
-        console.log("list has been updated...", employeeData.getemployees);
+        console.log("list has been updated...", employeeData.getEmployees);
     });
 
 

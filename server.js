@@ -1,6 +1,7 @@
 // Dependencies
 // ===================================================================
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // Create server object
 // ===================================================================
@@ -8,7 +9,8 @@ const app = express();
 
 // Middleware and parsing
 // ===================================================================
-
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // Routing
 // ===================================================================
