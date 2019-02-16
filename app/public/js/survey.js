@@ -4,28 +4,27 @@ const findMatch = function(employeeList, inputArray) {
     const diffArray = [];
     for (let employee of employeeList) {
         let diff;
-        let totalDiff;
+        let totalDiff =0 ;
         inputArray.forEach((ans, i) => {
             diff = Math.abs(ans - employee.scores[i]);
             totalDiff += diff;
         });
         diffArray.push(totalDiff);
     }
-    const match = employeeList[diffArray.indexOf(Math.min(diffArray))];
+    console.log('diffArray = ', diffArray)
+    console.log('min ',Math.min(...diffArray))
+    console.log('index ', diffArray.indexOf(Math.min(...diffArray)));
+    const match = employeeList[diffArray.indexOf(Math.min(...diffArray))];
+    console.log('math = ', match);
     $('#match-name').text(match.name);
     $('#match-img').attr('src', match.photo);
     $('#results-modal').modal({show: true});
 
 }
 
-empIndex = diffArray.indexOf(Math.min(...diffArray));
-result[empIndex];
-
-
 // Define findMatch(inputArray)
 const getEmployeeList = function(inputArray) {
     // get employee list to compare with 
-    let employeeList = [];
     $.ajax({
         url: '/api/employees',
         method: "GET"
@@ -49,14 +48,12 @@ const getInput = function(e) {
         $('#q9').val(),
         $('#q10').val(),
     ];
-    console.log(inputArray);
-    findMatch(inputArray);
+    getEmployeeList(inputArray);
 };
 
-
-// Define showModal()
-
-
+const relocateHome = function() {
+    location.href = "/";
+};
 
 // Add event listener to form submit button
 $('#submit').on('click', getInput);
